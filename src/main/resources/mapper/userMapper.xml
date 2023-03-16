@@ -8,5 +8,10 @@
         <result property="username" column="username"/>
         <result property="password" column="password"/>
     </resultMap>
-    <select id=""
+    <select id="login" resultMap="queryUser" parameterType="loginUser">
+        select * from demo.login where username= #{username} and password = #{password}
+    </select>
+    <select id="findUserByUsername" resultMap="queryUser" parameterType="String">
+        select * from demo.login where username = #{username}
+    </select>
 </mapper>
